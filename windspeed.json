@@ -1,0 +1,151 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 830,
+    "height": 750,
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    },
+    "projection": {
+        "type": "azimuthalEqualArea",
+        "center": [
+            -26,
+            133
+        ],
+        "rotate": [
+            -110,
+            8,
+            4
+        ]
+    },
+    "params": [
+        {
+            "name": "year",
+            "value": 2009,
+            "bind": {
+                "input": "range",
+                "min": 2009,
+                "max": 2016,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/shew0015/week9_homework/main/output.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "STE_2016_AUST"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#edfaef",
+                "stroke": "#b8e6bf",
+                "opacity": 0.6
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/shew0015/week9_homework/main/ne_110m_ocean.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_110m_ocean"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#f0f6fc",
+                "stroke": "#c5d9ed",
+                "opacity": 0.6
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/weather_windspeed_major_cities.csv"
+            },
+            "mark": {
+                "type": "circle"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Year == year"
+                }
+            ],
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "WindSpeed9am",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "WindSpeed9am",
+                    "type": "quantitative",
+                    "title": "Windspeed (km/hr)",
+                    "scale": {
+                        "scheme": "reds"
+                    },
+                    "legend": {
+                        "orient": "bottom"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Year",
+                        "type": "ordinal"
+                    },
+                    {
+                        "field": "Location",
+                        "type": "nominal"
+                    },
+                    {
+                        "field": "Latitude",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "Longitude",
+                        "type": "quantitative"
+                    },
+                    {
+                        "field": "WindSpeed9am",
+                        "type": "quantitative",
+                        "title": "Windspeed (km/hr)"
+                    }
+                ]
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/weather_windspeed_major_cities.csv"
+            },
+            "mark": {
+                "type": "text",
+                "dx": -11,
+                "dy": -13
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "text": {
+                    "field": "Location"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+
+{
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/maxtemp_mintemp_two.csv"
+    },
+    "width": 790,
+    "height": 400,
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 13
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "transform": [
+      {"filter": "year(datum.Date) == year"}
+    ],
+    "params": [
+        {
+            "name": "year",
+            "value": 2009,
+            "bind": {
+                "input": "range",
+                "min": 2009,
+                "max": 2014,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Date",
+            "timeUnit": "date",
+            "type": "ordinal",
+            "title": "Day",
+            "axis": {
+                "labelAngle": 0,
+                "format": "%e"
+            }
+        },
+        "y": {
+            "field": "Date",
+            "timeUnit": "month",
+            "type": "ordinal",
+            "title": "Month"
+        },
+        "color": {
+            "field": "MaxTemp",
+            "type": "quantitative",
+            "legend": {
+                "title": null,
+                "orient": "bottom"
+            },
+            "scale": {
+                "scheme": "oranges"
+            }
+        },
+        "tooltip": [
+            {"field": "Date", "title": "Date", "timeUnit": "yearmonthdate"},
+            {"field": "MaxTemp", "title": "Maximum Temperature (°C)", "format": ".2f"}
+        ]
+    }
+}

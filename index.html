@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiple Visualisations | An Example</title>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="datavisualisation2.js"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+
+</head>
+
+<body>
+    <div class="page">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="weather">
+                    <h1>Weather in Australia</h1>
+                    <p><b>This visualisation highlights the weather conditions in Australia.</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <!-- Windspeed (km/hr)-->
+            <div class="pure-u-1-1">
+                <h2 class="windspeed">Windspeed (km/hr) in the 8 Major Australian Cities</h2>
+                <p>This section explores the windspeed (km/hr) averaged over 10 minutes before 9 am in the 8 major
+                    cities of Australia. This includes Darwin, Perth, Brisbane, Adelaide, Sydney, Canberra, Melbourne
+                    and Hobart. </p>
+                <h4>Windspeed (km/hr) Prior to 9:00 a.m. in the 8 Major Cities of Australia
+                    From 2009 to 2016</h4>
+                <div class="pure-u-1-1">
+                    <div id="vis1" class="vis-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, Melbourne had the highest yearly averaged windspeed
+                    (km/hr) prior to 9:00 a.m. from 2009 to 2016, Brisbane had the lowest yearly averaged windspeed
+                    (km/hr) prior to 9:00 a.m. from 2009 to 2016. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">Windspeed (km/hr) is measured by the difference in air pressure between two points.
+                    This
+                    indicates that the air pressure differences in Melbourne is high. The highest yearly averaged
+                    windspeed (km/hr) prior to 9:00 a.m. from 2009 to 2016 in Melbourne is 21.16 km/hr, and the year
+                    is 2012. </p>
+            </div>
+        </div>
+
+        <!-- Rainfall (mm) -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2 class="rainfall">Rainfall (mm) in Melbourne</h2>
+                <p>This section explores the rainfall (mm) in Melbourne from 2009 to 2014. </p>
+                <p><b style="color: #691c1c;">Note: some rainfall (mm) data is missing, but this does not affect the
+                        overall investigation
+                        in daily rainfall (mm) in Melbourne. </b></p>
+                <h4>Daily Rainfall (mm) From 2009 to 2014 in Melbourne</h4>
+                <div class="pure-u-1-2">
+                    <div id="vis2" class="vis-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, rainfall (mm) in Melbourne is low and consistent from
+                    2009 to 2014. There are no specific patterns or trends. Based on the ‘Yearly Averaged Rainfall
+                    (mm) in Melbourne from 2009 to 2014, the highest yearly averaged rainfall (mm) in Melbourne is
+                    in 2011, and the lowest is in 2009. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">The average rainfall (mm) in 2011 in Melbourne is 2.54 mm, whilst the average
+                    rainfall (mm) in 2009 in Melbourne is 1.23 mm, highlighting that there is not much difference
+                    between them. This also demonstrates that rainfall (mm) in Melbourne is consistently low. </p>
+            </div>
+        </div>
+
+        <!-- Maximum Temperature (°C)-->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2 class="temp">Maximum Temperature (°C) in Melbourne</h2>
+                <p>This section explores the maximum temperature (°C) in Melbourne from 2009 to 2014. </p>
+                <p><b style="color: #691c1c; text-align: justify;">Note: some maximum temperature (°C) data is
+                        missing.</b> Maximum temperature (°C) data for
+                    April 2001, December 2013 and February 2013 are missing. Since maximum temperature (°C) patterns
+                    are consistent every year, readers are encouraged to ignore these missing values. </p>
+                <h4>Daily Maximum Temperature (°C) in Melbourne from 2009 to 2014 in Melbourne</h4>
+                <div class="pure-u-1-1">
+                    <div id="vis3" class="vis-container"></div>
+                </div>
+                <h4>Averaged Monthly Maximum Temperature (°C) From 2009 to 2014 in Melbourne</h4>
+                <div class="pure-u-1-1">
+                    <div id="vis4" class="vis-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <p class="p-left">Based on the results above, December to February have high maximum temperatures,
+                    which corresponds to the summer period. June to August have low maximum temperatures, which
+                    corresponds to the winter period. </p>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="p-right">The maximum temperatures (°C) did not change a lot across the years and was
+                    consistently throughout. </p>
+            </div>
+        </div>
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div class="weather">
+                    <p><b>This visualisation is created by Sao Jun Hew for FIT3179 Assignment 2.</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

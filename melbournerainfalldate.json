@@ -1,0 +1,81 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/weather_melbourne_rainfall_date_nine_fourteen.csv"
+    },
+    "vconcat": [
+        {
+            "width": 800,
+            "height": 250,
+            "mark": {
+                "type": "line",
+                "color": "#3582c4"
+            },
+            "encoding": {
+                "x": {
+                    "field": "Date",
+                    "timeUnit": "yearmonthdate",
+                    "type": "temporal",
+                    "scale": {
+                        "domain": {
+                            "param": "brush"
+                        }
+                    },
+                    "axis": {
+                        "title": ""
+                    }
+                },
+                "y": {
+                    "field": "Rainfall",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Rainfall (mm)"
+                    }
+                },
+                "tooltip": [
+                    {"field": "Date", "title": "Date", "timeUnit": "yearmonthdate"},
+                    {"field": "Rainfall", "title": "Rainfall (mm)", "format": ".2f"}
+                ]
+            }
+        },
+        {
+            "title": {
+                "text": "Navigate with the chart below:",
+                "fontSize": 10,
+                "align": "center"
+            },
+            "width": 800,
+            "height": 100,
+            "mark": {
+                "type": "line",
+                "color": "#043959"
+            },
+            "params": [
+                {
+                    "name": "brush",
+                    "select": {
+                        "type": "interval",
+                        "encodings": ["x"]
+                    }
+                }
+            ],
+            "encoding": {
+                "x": {
+                    "field": "Date",
+                    "timeUnit": "yearmonthdate",
+                    "type": "temporal",
+                    "axis": {
+                        "title": "Date"
+                    }
+                },
+                "y": {
+                    "field": "Rainfall",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Rainfall (mm)"
+                    }
+                }
+            }
+        }
+    ]
+}
